@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI CALCULATOR</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"; rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        body{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-image: url(15454c4b6ff7ee0d201004ff871b34ed.jpg);
+            background-position: 100%;
+            padding-left: 20cm;
+            padding-left: 1cm;
+            padding-right:1cm;
+
+
+        }
+        container{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-image: url(15454c4b6ff7ee0d201004ff871b34ed.jpg);
+            background-position: 100%;
+            padding-left: 20cm;
+            padding-top: 2cm;
+            padding-left: 1cm;
+            padding-right:1cm;
+        }
+    
+
+    </style>
+</head>
+<body>
+    <br>
+
+    <center><img src="e5287517f57e93f9a36b0ccb6fe00f7d.jpg" style="width: 15%;"></center>
+
+    <br>
+
+    <div class="container">
+        <h1 style="font-weight: 250; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">BMI Calculator</h1>
+        
+        <details ontoggle="message1()">
+            <summary>
+                <u> Instructions</u>
+                <i id="result"></i>
+            </summary>
+        </details>
+    </div>
+
+
+        <script>
+            function message1() {
+                document.getElementById ("result").innerHTML = "Input your weight and height to find out your BMI!";
+            }
+        </script>
+
+        <input type="number" class="form-control" placeholder="weight in kilograms" id="weight">
+        <br>
+        <button class="btn btn-secondary">KILOGRAMS</button>
+        <br>
+        <br>
+        <input type="number" class="form-control" placeholder="height in meters" id="height">
+        <br>
+        <button class="btn btn-secondary">METERS</button>
+        <br><br>    
+        <button type="calculate" class="btn btn-success" onclick="bmi()" id="result">Calculate!</button>
+
+        <div class="result" id="result"></div>
+    </div>
+
+<br>
+    </div>
+
+    
+<script>
+    function bmi() {
+        var weight = document.getElementById("weight").value;
+        var height = document.getElementById("height").value;
+
+        if(weight && height) {
+            var bmi= weight/ (height*height);
+            var result= " Your BMI is " + bmi.toFixed(2);
+
+            if (bmi < 18.5) {
+                result+="(Underweight)";
+            }
+            else if (bmi >= 18.5 && bmi < 24.9) {
+                result+="(Normal Weight)";
+            }
+            else if (bmi>= 25 && bmi <29.9) {
+                result+="(Overweight)";
+            }
+            else {result+="(Obese)";}
+            
+            document.getElementById("result").innerText = result;
+        } else {
+            document.getElementById("result").innerText = "Please enter both weight and height.";
+        }
+        }
+</script>
+
+</body>
+</html>
